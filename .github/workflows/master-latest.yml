@@ -10,7 +10,7 @@ on:
 env: # Version to build for. Separate to facilitate tagging, done below.
   MAJOR: 0
   MINOR: 9
-  PATCH: 5
+  PATCH: 4
 
 jobs:
   docker:
