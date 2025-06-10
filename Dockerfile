@@ -9,7 +9,8 @@ RUN  apt-get update \
   | tar xzv --strip-components 1 -C /opt/cerebro \
  && sed -i '/<appender-ref ref="FILE"\/>/d' /opt/cerebro/conf/logback.xml
 
-RUN apt-get update && apt-get install -y --only-upgrade zlib1g openssl libdb5.3 dpkg libc6 libgnutls30 liblz4-1 libtasn1-6 libpcre2-8-0
+# RUN apt-get update && apt-get install -y --only-upgrade zlib1g openssl libdb5.3 dpkg libc6 libgnutls30 liblz4-1 libtasn1-6 libpcre2-8-0
+RUN apt-get update && apt-get install -y --only-upgrade zlib1g && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 FROM openjdk:11-jre-slim
 
