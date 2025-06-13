@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim as builder
+FROM openjdk:11-jre-slim AS builder
 
 ARG CEREBRO_VERSION=0.9.4
 
@@ -15,16 +15,16 @@ FROM openjdk:11-jre-slim
 RUN apt-get update \
     && apt-get install -y --only-upgrade openssl libdb5.3 dpkg libc6 libgnutls30 liblz4-1 \
     && apt-get install -y \
-        zlib1g=1:1.2.11.dfsg-2+deb11u2 \
-        libkrb5-3=1.18.3-6+deb11u5 \
-        libpcre2-8-0=10.36-2+deb11u1 \
-        libtasn1-6=4.16.0-2+deb11u1 \
+        zlib1g \
+        libkrb5-3 \
+        libpcre2-8-0 \
+        libtasn1-6 \
     && apt-mark hold \
         zlib1g \
         libkrb5-3 \
         libpcre2-8-0 \
         libtasn1-6
-        
+
 COPY --from=builder /opt/cerebro /opt/cerebro
 
 RUN addgroup -gid 1000 cerebro \
