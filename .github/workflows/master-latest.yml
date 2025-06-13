@@ -10,7 +10,7 @@ on:
 env: # Version to build for. Separate to facilitate tagging, done below.
   MAJOR: 0
   MINOR: 9
-  PATCH: 5
+  PATCH: 4
 
 jobs:
   docker:
@@ -36,8 +36,7 @@ jobs:
 
       - name: Prepare
         id: prep
-        run: |
-          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+        run: echo "created=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
 
       - name: Build and push
         id: docker_build
