@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim AS builder
+FROM openjdk:26-slim AS builder
 
 ARG CEREBRO_VERSION=0.9.4
 
